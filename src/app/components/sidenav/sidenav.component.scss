@@ -109,3 +109,12 @@
     background-color: #fff;
   }
 }
+
+.active {
+  background: #fff;
+
+  .sidenav-link-text,
+  .sidenav-link-icon {
+    color: black;
+  }
+}

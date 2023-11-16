@@ -2,16 +2,17 @@
   <div class="logo-container">
     <button class="logo" (click)="toggleCollapse()"><img src="../../../assets/navbar/cerveja.png" alt=""
         class="logo-icon"></button>
-    <div class="logo-text" *ngIf="collapsed">SBM</div>
+    <div class="logo-text" @fadeInOut *ngIf="collapsed">SBM</div>
     <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
       <i class="close-icon fa-solid fa-xmark"></i>
     </button>
   </div>
   <ul class="sidenav-nav">
     <li class="sidenav-nav-item" *ngFor="let data of navData">
-      <a class="sidenav-nav-link" routerLink="[data.routeLink">
+      <a class="sidenav-nav-link" [routerLink]="data.routeLink" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
         <i class="sidenav-link-icon" [class]="data.icon"></i>
-        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+        <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">{{data.label}}</span>
       </a>
     </li>
   </ul>
