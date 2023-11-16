@@ -14,4 +14,9 @@ export const navbarData = [
     icon: 'fa-solid fa-cash-register',
     label: 'Caixa',
   },
+  {
+    routeLink: 'pedidos',
+    icon: 'fa-solid fa-shopping-cart',
+    label: 'Pedidos',
+  },
 ];

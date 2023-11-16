@@ -10,6 +10,7 @@ import { GerenciamentoComponent } from './components/gerenciamento/gerenciamento
 import { FornecedoresComponent } from './components/fornecedores/fornecedores.component';
 import { FornecedoresCadastroComponent } from './components/fornecedores-cadastro/fornecedores-cadastro.component';
 import { CaixaComponent } from './components/caixa/caixa.component';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CaixaComponent } from './components/caixa/caixa.component';
     FornecedoresComponent,
     FornecedoresCadastroComponent,
     CaixaComponent,
+    PedidosComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
