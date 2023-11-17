@@ -1,0 +1,107 @@
+.head-form {
+  border-radius: 0.625rem 0.625rem 0rem 0rem;
+  background: #ff9824;
+  padding: 1.5rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+
+  .container-form {
+    margin: 1rem 2.56rem 1rem 0;
+
+    .label {
+      color: #545454;
+      font-size: 1.25rem;
+    }
+
+    .input,
+    .select {
+      display: block;
+      max-width: 28.6rem;
+      border-radius: 0.3125rem;
+      border: 1px solid rgba(0, 0, 0, 0.6);
+      background: #ebeaea;
+      padding: 0.875rem;
+      font-size: 1rem;
+      color: #545454;
+    }
+
+    .select {
+      max-width: 220px;
+    }
+
+    .input:focus {
+      outline: none;
+    }
+
+    .container-radio {
+      display: flex;
+      gap: 1rem;
+
+      .data-field-radio {
+        display: flex;
+        align-items: center;
+
+        .label-radio {
+          font-size: 1.2rem;
+        }
+
+        input[type="radio"] {
+          appearance: none;
+          margin-right: 10px;
+          width: 30px;
+          height: 30px;
+          border: 1px solid black;
+          border-radius: 50%;
+          outline: none;
+
+          &:checked {
+            border-color: #ff9824;
+            background-color: #ff9824;
+            box-shadow: inset 0 0 0 3px #fff;
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+.btn-cadastrar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  background-color: #ff9824;
+  border: 1px solid #ff9824;
+
+  i {
+    margin-right: 10px;
+  }
+}

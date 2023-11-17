@@ -1,1 +1,67 @@
-<p>fornecedores-cadastro works!</p>
+<h1>Fornecedores</h1>
+<div class="card">
+  <h1 class="card-head head-form">Cadastro de Fornecedor</h1>
+  <div class="card-body">
+
+    <form [formGroup]="formFornecedor">
+      <div class="form-group">
+        <div class="container-form">
+          <label for="nome" class="label">Nome</label>
+          <input type="text" id="nome" name="nome" formControlName="nome" class="input">
+        </div>
+
+        <div class="container-form">
+          <label for="loja" class="label">Loja</label>
+          <input type="text" id="loja" name="loja" formControlName="loja" class="input">
+        </div>
+
+        <div class="container-form">
+          <label for="contato" class="label">Contato (telefone)</label>
+          <input type="text" id="contato" name="contato" formControlName="contato" class="input">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="container-form">
+          <label for="cpnj" class="label">CNPJ</label>
+          <input type="text" class="input" id="cnpj" name="cpnj" formControlName="cnpj">
+        </div>
+
+        <div class="container-form">
+          <label for="tipo" class="label">Situação</label>
+          <div class="container-radio">
+            <div class="data-field-radio">
+              <input type="radio" id="ativa" name="situacao" value="ativa" class="input-radio"
+                formControlName="situacao">
+              <label for="ativa" class="label-radio">Ativa</label>
+            </div>
+            <div class="data-field-radio second">
+              <input type="radio" id="inativa" name="situacao" value="inativa" class="input-radio"
+                formControlName="situacao">
+              <label for="inativa" class="label-radio">Inativa</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-form">
+          <label for="uf" class="label">Endereço</label>
+          <input type="text" class="input" id="endereco" name="endereco" formControlName="endereco">
+        </div>
+
+        <div class="container-form">
+          <label for="uf" class="label">Estado</label>
+          <select name="uf" id="uf" class="select" formControlName="estado">
+            <option disabled selected>Selecione...</option>
+            <option *ngFor="let uf of ufs" [value]="uf.sigla" class="option">{{uf.nome}}</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn-cadastrar" (click)="cadastrar()">
+        <i class="fa-solid fa-plus"></i>
+        Cadastrar
+      </button>
+    </form>
+
+  </div>
+</div>
