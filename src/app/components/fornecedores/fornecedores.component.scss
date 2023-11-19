@@ -35,3 +35,31 @@
     border: 1px solid #13aa52;
   }
 }
+
+.actions-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  button {
+    height: 40px;
+    width: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-edit {
+    background: #306ebb;
+  }
+
+  .btn-remove {
+    background: #e74c3c;
+  }
+}
