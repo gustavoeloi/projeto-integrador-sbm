@@ -1,8 +1,88 @@
 <h1>Caixa</h1>
 <div class="card">
-  <div class="card-head">Lorem ipsum - Caixa</div>
+  <div class="card-head">Selecione os produtos</div>
   <div class="card-body">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi tempore odio fugit cumque necessitatibus mollitia
-    eius alias et excepturi minima?
+    <div class="caixa-container">
+      <div class="lista-produtos">
+        <div class="header-lista-produtos">
+          <h2>Comprar produtos</h2>
+          <mat-form-field class="search-field" appearance="fill">
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput type="text" placeholder="Pesquisar..." [(ngModel)]="searchTerm" (input)="searchProduct()" />
+          </mat-form-field>
+        </div>
+        <div class="table-produtos">
+          <table class="product-table">
+            <thead>
+              <tr>
+                <th>Nome do Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of filteredProducts">
+                <td>{{ product.name }}</td>
+                <td>{{ product.price | currency : 'BRL' }}</td>
+                <td class="td-actions">
+                  <button (click)="decreaseQuantity(product)" class="btn-cart subtract">-</button>
+                  <input type="number" [value]="getQuantity(product)">
+                  <button (click)=" increaseQuantity(product)" class="btn-cart sum">+</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="container-cart">
+        <div class="cart-header">
+          <img src="../../../assets/navbar/cerveja.png" alt="">
+          <h2>Carrinho</h2>
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+        <div class="cart-body">
+          <p class="cart-header-info">Pedido processado pelo</p>
+          <p class="cart-sbm"><b>Small Bussiness Managment</b></p>
+          <p class="cart-header-info">Bebidas</p>
+          <div class="cart-items" *ngIf="productsInCart.length > 0; else notProductsInCart">
+            <div class="cart-item" *ngFor="let product of productsInCart">
+              <div class="cart-item-info">
+                <p class="item-name">{{ getQuantity(product) }}x {{ product.name }}</p>
+                <p class="item-price">{{ getValue(product) | currency: 'BRL'}}</p>
+              </div>
+            </div>
+          </div>
+          <ng-template #notProductsInCart>
+            <div class="cart-item">
+              <div class="cart-item-info">
+                <p class="not-product">Nenhum produto adicionado ao carrinho</p>
+              </div>
+            </div>
+          </ng-template>
+          <div class="cart-info">
+            <div class="cart-info-item">
+              <p>Subtotal</p>
+              <p>{{ getSubTotal() | currency : 'BRL' }}</p>
+            </div>
+            <div class="cart-info-item">
+              <p>Taixa de Serviço <i class="fa-regular fa-circle-question"
+                  matTooltip="Essa taxa é cobrada devido ao serviço prestado"></i>
+              </p>
+              <p>{{ getTaxService() | currency : 'BRL' }}</p>
+            </div>
+            <div class="cart-info-item">
+              <p>Taixa de Entrega</p>
+              <p>{{ taxDelivery | currency : 'BRL' }}</p>
+            </div>
+            <div class="cart-info-item">
+              <p class="cart-total">Total</p>
+              <p class="cart-total">{{ getTotal() | currency : 'BRL' }}</p>
+            </div>
+            <button class="btn-cart">Escolher forma de pagamento</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
