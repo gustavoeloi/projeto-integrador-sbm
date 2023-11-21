@@ -10,6 +10,10 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -19,6 +23,9 @@ import { FornecedoresCadastroComponent } from './components/fornecedores-cadastr
 import { CaixaComponent } from './components/caixa/caixa.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { FornecedoresComponent } from './components/fornecedores/fornecedores.component';
+import { FornecedoresEditarComponent } from './components/fornecedores-editar/fornecedores-editar.component';
+import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
+import { SelecaoPagamentoComponent } from './components/caixa/dialogs/selecao-pagamento/selecao-pagamento.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +37,9 @@ import { FornecedoresComponent } from './components/fornecedores/fornecedores.co
     FornecedoresCadastroComponent,
     CaixaComponent,
     PedidosComponent,
+    FornecedoresEditarComponent,
+    ConfirmationDialogComponent,
+    SelecaoPagamentoComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +54,10 @@ import { FornecedoresComponent } from './components/fornecedores/fornecedores.co
     HttpClientModule,
     MatIconModule,
     MatTooltipModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

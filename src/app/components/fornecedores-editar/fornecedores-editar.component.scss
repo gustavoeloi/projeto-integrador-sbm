@@ -22,14 +22,12 @@
     .input,
     .select {
       display: block;
-      margin-top: 8px;
       width: 100%;
       border-radius: 0.3125rem;
-      // border: 1px solid rgba(0, 0, 0, 0.6);
-      border: none;
+      border: 1px solid rgba(0, 0, 0, 0.6);
       background: #ebeaea;
-      padding: 16px;
-      font-size: 12px;
+      padding: 0.875rem;
+      font-size: 1rem;
       color: #545454;
     }
 
@@ -50,7 +48,7 @@
         align-items: center;
 
         .label-radio {
-          font-size: 1rem;
+          font-size: 1.2rem;
         }
 
         input[type="radio"] {
@@ -76,7 +74,6 @@
     }
   }
 }
-
 .btn-cadastrar {
   display: flex;
   align-items: center;
@@ -100,8 +97,8 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  background-color: #ff9824;
-  border: 1px solid #ff9824;
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
 
   i {
     margin-right: 10px;

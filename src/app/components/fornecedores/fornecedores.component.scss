@@ -1,3 +1,21 @@
+table {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  th {
+    background-color: #ff9824;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding: 16px;
+    text-transform: uppercase;
+  }
+
+  td {
+    text-align: center;
+  }
+}
+
+
+
 .btn-container-actions {
   margin-top: 2rem;
   max-width: 100%;
@@ -34,6 +52,7 @@
     background-color: #13aa52;
     border: 1px solid #13aa52;
   }
+
 }
 
 .actions-btn {
@@ -61,5 +80,14 @@
 
   .btn-remove {
     background: #e74c3c;
+  }
+}
+
+.container-sem-cadastro {
+  padding: 16px;
+  h3 {
+    font-size: 24px;
+    text-align: center;
+
   }
 }

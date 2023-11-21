@@ -1,3 +1,4 @@
+import { FornecedoresEditarComponent } from './components/fornecedores-editar/fornecedores-editar.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GerenciamentoComponent } from './components/gerenciamento/gerenciamento.component';
@@ -11,9 +12,10 @@ const routes: Routes = [
   { path: 'gerenciamento', component: GerenciamentoComponent },
   { path: 'fornecedores', component: FornecedoresComponent },
   { path: 'fornecedores/cadastrar', component: FornecedoresCadastroComponent },
+  { path: 'fornecedores/editar/:id', component: FornecedoresEditarComponent },
   { path: 'caixa', component: CaixaComponent },
   { path: 'pedidos', component: PedidosComponent },
-  { path: '**', redirectTo: '/gerenciamento', pathMatch: 'full' },
+  // { path: '**', redirectTo: '/gerenciamento', pathMatch: 'full' },
 ];
 
 @NgModule({

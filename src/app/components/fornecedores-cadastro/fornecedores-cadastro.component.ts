@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { IFornecedor } from './IFornecedor';
 import { FornecedorService } from 'src/app/services/Fornecedor.service';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Estado {
   UF: string;
@@ -21,7 +23,9 @@ export class FornecedoresCadastroComponent {
   constructor(
     private formBuilder: FormBuilder,
     private ufService: UFService,
-    private fornecedorService: FornecedorService
+    private fornecedorService: FornecedorService,
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {
     this.getUF();
     this.formFornecedor = this.formBuilder.group({
@@ -36,17 +40,18 @@ export class FornecedoresCadastroComponent {
   }
 
   cadastrar(): void {
-    const data = {
+    const fornecedor = {
       nome: this.formFornecedor.get('nome')!.value,
       loja: this.formFornecedor.get('loja')!.value,
       cnpj: this.formFornecedor.get('cnpj')!.value,
       contato: this.formFornecedor.get('contato')!.value,
       situacao: this.formFornecedor.get('situacao')!.value,
-      estado: this.formFornecedor.get('estado')!.value, // Aqui o objeto do estado selecionado será armazenado
+      estado: this.formFornecedor.get('estado')!.value,
       endereco: this.formFornecedor.get('endereco')!.value,
     };
-    this.fornecedorService.saveFornecedor(data).subscribe((res) => {
-      console.log(res);
+    this.fornecedorService.saveFornecedor(fornecedor).subscribe((res) => {
+      this.showMessage('Fornecedor cadastrado com sucesso!');
+      this.router.navigate(['/fornecedores']);
     });
   }
 
@@ -54,5 +59,15 @@ export class FornecedoresCadastroComponent {
     this.ufService.getUFs().subscribe((uf) => {
       this.ufs = Object.values(uf);
     });
+  }
+
+  openSnackBar(message: string, actions: string) {
+    this._snackBar.open(message, actions, {
+      duration: 5000,
+    });
+  }
+
+  showMessage(message: string) {
+    this.openSnackBar(message, 'Fechar');
   }
 }
