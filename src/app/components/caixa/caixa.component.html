@@ -78,7 +78,7 @@
               <p class="cart-total">Total</p>
               <p class="cart-total">{{ getTotal() | currency : 'BRL' }}</p>
             </div>
-            <button class="btn-cart">Escolher forma de pagamento</button>
+            <button class="btn-cart" (click)="abrirDialogPagamento()">Escolher forma de pagamento</button>
           </div>
         </div>
       </div>

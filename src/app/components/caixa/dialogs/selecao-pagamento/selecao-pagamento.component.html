@@ -1,0 +1,21 @@
+<div class="pagamento-container">
+  <h1 mat-dialog-title>Escolha a forma de pagamento</h1>
+  <mat-radio-group [(ngModel)]="formaPagamento">
+    <mat-radio-button value="cartao" class="radio-pagamento">
+      <img src="../../../../../assets/formas-pagamento/cartão.png" alt="Cartão">
+      Cartão
+    </mat-radio-button>
+    <mat-radio-button value="dinheiro" class="radio-pagamento">
+      <img src="../../../../../assets/formas-pagamento/dinheiro.png" alt="Dinheiro">
+      Dinheiro
+    </mat-radio-button>
+    <mat-radio-button value="pix" class="radio-pagamento">
+      <img src="../../../../../assets/formas-pagamento/pix.png" alt="Pix">
+      Pix
+    </mat-radio-button>
+  </mat-radio-group>
+  <div mat-dialog-actions>
+    <button mat-button (click)="cancelar()">Cancelar</button>
+    <button mat-button color="primary" (click)="confirmar()">Confirmar</button>
+  </div>
+</div>

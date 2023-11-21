@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ProdutoService } from 'src/app/services/Produto.service';
+import { MatDialog } from '@angular/material/dialog';
+import { SelecaoPagamentoComponent } from './dialogs/selecao-pagamento/selecao-pagamento.component';
 
 @Component({
   selector: 'app-caixa',
@@ -15,9 +17,12 @@ export class CaixaComponent {
   total: number = 0;
   taxService: number = 0.0;
   subtotal: number = 0;
-  taxDelivery: number = 5.0;
+  taxDelivery: number = 0.0;
 
-  constructor(private produtoService: ProdutoService) {
+  constructor(
+    private produtoService: ProdutoService,
+    public dialog: MatDialog
+  ) {
     this.product = this.produtoService.getProdutos();
     this.filteredProducts = this.product;
   }
@@ -43,6 +48,7 @@ export class CaixaComponent {
     if (existingProduct && existingProduct.quantityInCart > 0) {
       existingProduct.quantityInCart--;
       if (existingProduct.quantityInCart === 0) {
+        this.taxDelivery = 0;
         const index = this.productsInCart.indexOf(existingProduct);
         this.productsInCart.splice(index, 1);
       }
@@ -56,6 +62,7 @@ export class CaixaComponent {
 
     if (existingProduct) {
       existingProduct.quantityInCart++;
+      this.taxDelivery = 5;
     } else {
       const newProduct = { ...product };
       newProduct.quantityInCart = 1;
@@ -96,5 +103,20 @@ export class CaixaComponent {
 
   getTotal(): number {
     return this.getSubTotal() + this.getTaxService() + this.taxDelivery;
+  }
+
+  clearCart() {
+    this.productsInCart = [];
+    this.taxDelivery = 0;
+  }
+
+  abrirDialogPagamento(): void {
+    const dialogRef = this.dialog.open(SelecaoPagamentoComponent, {
+      width: '400px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('Forma da pagamento selecionada: ', result);
+    });
   }
 }
